@@ -7,7 +7,6 @@ using UnityEngine.UI;
 public class VardaParadisana : MonoBehaviour {
 	
 	public GameObject vards;
-	//public GameObject dropDown;
 	public GameObject tests;
 	public string text;
 	public GameObject inputField;
@@ -19,7 +18,6 @@ public class VardaParadisana : MonoBehaviour {
 		vards.SetActive (false);
 	}
 	void Start(){
-		//dropDown.SetActive (false);
 		tests.SetActive (false);
 	}
 
