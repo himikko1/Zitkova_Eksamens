@@ -28,10 +28,14 @@ public class GalvenaisKods : MonoBehaviour {
 	}
 
 	void genereJautajumu(){
-		jautajumsTagad = Random.Range (0, JuA.Count);
-		JautajumsTxt.text = JuA [jautajumsTagad].jautajums;
-		Debug.Log (JuA [jautajumsTagad].jautajums);
-		Atbildes ();
+		if (JuA.Count > 0) {
+			jautajumsTagad = Random.Range (0, JuA.Count);
+			JautajumsTxt.text = JuA [jautajumsTagad].jautajums;
+			Debug.Log (JuA [jautajumsTagad].jautajums);
+			Atbildes ();
+		} else {
+			Debug.Log ("Out of Questions");
+		}
 
 	}
 }
