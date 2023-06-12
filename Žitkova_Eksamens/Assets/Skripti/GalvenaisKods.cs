@@ -16,7 +16,7 @@ public class GalvenaisKods : MonoBehaviour {
 	int JautajumsTagad = 0;
 	public int punkti;
 
-	public Text JautajumsTxt;
+	//public Text JautajumsTxt;
 	private void Start(){
 		JautajumsTagad = JuA.Count;
 		JautajumuAttels.SetActive (false);
@@ -42,7 +42,7 @@ public class GalvenaisKods : MonoBehaviour {
 	public void nepareizi(){
 		//kad atbildi nepareizi
 		JuA.RemoveAt (jautajumsTagad);
-		genereJautajumu ();
+		SpeleBeidzas ();
 	}
 
 	void Atbildes(){
@@ -58,7 +58,7 @@ public class GalvenaisKods : MonoBehaviour {
 	void genereJautajumu(){
 		if (JuA.Count > 0) {
 			jautajumsTagad = Random.Range (0, JuA.Count);
-			JautajumsTxt.text = JuA [jautajumsTagad].jautajums;
+			JautajumsText.text = JuA [jautajumsTagad].jautajums;
 			Debug.Log (JuA [jautajumsTagad].jautajums);
 			Atbildes ();
 		} else {
