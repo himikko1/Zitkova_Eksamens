@@ -34,7 +34,6 @@ public class GalvenaisKods : MonoBehaviour {
 		JautajumuAttels.SetActive (true);
 		PunktiTxt.text = punkti + "/" + JautajumsTagad;
 	}
-
 	public void pareizi(){
 		Debug.Log ("Pareizi nak jautajums");
 		if (noPirmasReizes == false) {
@@ -44,20 +43,25 @@ public class GalvenaisKods : MonoBehaviour {
 		}
 		JuA.RemoveAt (jautajumsTagad);
 		genereJautajumu ();
+		for(int i=0; i<opcijas.Length;i++){
+			opcijas [i].GetComponent<Image>().color = Color.white;
+		}
 	}
 
 	public void nepareizi(){
 		//kad atbildi nepareizi
 		noPirmasReizes = false;
+		Atbildes ();
 	}
 
 	void Atbildes(){
 		for (int i = 0; i < opcijas.Length; i++) {
 			opcijas [i].GetComponent<AtbildesSkripts>().pareizs = false;
 			opcijas [i].transform.GetChild (0).GetComponent<Text> ().text = JuA [jautajumsTagad].atbildes [i];
-			if (JuA [jautajumsTagad].pareizaAtbilde == +1) {
+			if (JuA [jautajumsTagad].pareizaAtbilde == i) {
 				opcijas [i].GetComponent<AtbildesSkripts> ().pareizs = true;
 			}
+			Debug.Log ("Opcija = "+opcijas[i]+"="+opcijas [i].GetComponent<AtbildesSkripts>().pareizs);
 		}
 	}
 
