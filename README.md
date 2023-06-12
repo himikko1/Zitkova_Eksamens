@@ -1,2 +1,2 @@
 # Zitkova_Eksamens
-- [x] Uztaisīju Use CAse diagrammu
+- [x] Uztaisīju Use Case diagrammu
