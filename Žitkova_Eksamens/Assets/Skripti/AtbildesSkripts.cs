@@ -12,7 +12,7 @@ public class AtbildesSkripts : MonoBehaviour {
 			galvenaisKods.pareizi ();
 		} else {
 			Debug.Log ("Nepareiza atbilde!");
-			galvenaisKods.pareizi ();
+			galvenaisKods.nepareizi ();
 		}
 	}
 }

@@ -2,17 +2,45 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 public class GalvenaisKods : MonoBehaviour {
 	public List<Atbilde> JuA;
 	public GameObject[] opcijas;
 	public int jautajumsTagad;
 
+	public GameObject JautajumuAttels;
+	public GameObject TryAgainButton;
+
+	public Text JautajumsText;
+	public Text PunktiTxt;
+	int JautajumsTagad = 0;
+	public int punkti;
+
 	public Text JautajumsTxt;
 	private void Start(){
+		JautajumsTagad = JuA.Count;
+		JautajumuAttels.SetActive (false);
 		genereJautajumu();
 	}
 
+	public void retry(){
+		SceneManager.LoadScene (SceneManager.GetActiveScene ().buildIndex);
+	}
+
+ void SpeleBeidzas(){
+		JautajumuAttels.SetActive (false);
+		JautajumuAttels.SetActive (true);
+		PunktiTxt.text = punkti + "/" + JautajumsTagad;
+	}
+
 	public void pareizi(){
+		punkti += 1;
+		JuA.RemoveAt (jautajumsTagad);
+		genereJautajumu ();
+	}
+
+	public void nepareizi(){
+		//kad atbildi nepareizi
 		JuA.RemoveAt (jautajumsTagad);
 		genereJautajumu ();
 	}
@@ -35,6 +63,7 @@ public class GalvenaisKods : MonoBehaviour {
 			Atbildes ();
 		} else {
 			Debug.Log ("Out of Questions");
+			SpeleBeidzas ();
 		}
 
 	}
