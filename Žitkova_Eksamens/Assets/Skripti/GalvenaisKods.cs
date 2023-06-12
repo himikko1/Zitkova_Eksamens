@@ -11,6 +11,8 @@ public class GalvenaisKods : MonoBehaviour {
 	public GameObject JautajumuAttels;
 	public GameObject TryAgainButton;
 
+	public bool noPirmasReizes= true;
+
 	public Text JautajumsText;
 	public Text PunktiTxt;
 	int JautajumsTagad = 0;
@@ -34,15 +36,19 @@ public class GalvenaisKods : MonoBehaviour {
 	}
 
 	public void pareizi(){
-		punkti += 1;
+		Debug.Log ("Pareizi nak jautajums");
+		if (noPirmasReizes == false) {
+			noPirmasReizes = true;
+		} else {
+			punkti += 1;
+		}
 		JuA.RemoveAt (jautajumsTagad);
 		genereJautajumu ();
 	}
 
 	public void nepareizi(){
 		//kad atbildi nepareizi
-		JuA.RemoveAt (jautajumsTagad);
-		SpeleBeidzas ();
+		noPirmasReizes = false;
 	}
 
 	void Atbildes(){

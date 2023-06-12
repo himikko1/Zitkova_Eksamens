@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class AtbildesSkripts : MonoBehaviour {
 	public bool pareizs = false;
@@ -12,6 +13,7 @@ public class AtbildesSkripts : MonoBehaviour {
 			galvenaisKods.pareizi ();
 		} else {
 			Debug.Log ("Nepareiza atbilde!");
+			GetComponent<Image> ().color = Color.red;
 			galvenaisKods.nepareizi ();
 		}
 	}
